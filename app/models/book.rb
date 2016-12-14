@@ -19,7 +19,14 @@ class Book < ApplicationRecord
   validate :image_size
 
   scope :of_ids, -> ids {where id: ids}
-  
+  scope :by_author_or_title, ->search do   
+    where "author LIKE :query OR title LIKE :query",
+      query: "%#{search}%" if search.present?
+  end
+  scope :by_category, ->category_id do
+    where category_id: category_id if category_id.present?
+  end
+
   private
   def image_size
     if image.size > Settings.book.image_max_size
