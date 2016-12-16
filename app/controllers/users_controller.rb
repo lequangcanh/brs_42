@@ -32,7 +32,7 @@ class UsersController < ApplicationController
     set_relationship @user
     @favorite_books = @user.list_favorite_books
       .paginate page: params[:favorite_book_page], per_page: Settings.book.per_page
-    @histories = User.marks.not_unread.order_updated_at
+    @histories = @user.marks.not_unread.order_updated_at
       .paginate page: params[:page], per_page: Settings.mark.per_page
   end
 
