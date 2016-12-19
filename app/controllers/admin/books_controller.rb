@@ -39,13 +39,14 @@ class Admin::BooksController < Admin::BaseController
   end
 
   def destroy
-    if @book.destroy
+    if @book.reviews.any?
+      flash[:danger] = t "admin.books.destroy.relationship_error"
+    elsif @book.destroy
       flash[:success] = t "admin.books.destroy.deleted"
-      redirect_to admin_books_path
     else
       flash[:danger] = t "admin.books.destroy.delete_error"
-      redirect_to admin_books_path
     end
+    redirect_to admin_books_path
   end
 
   private

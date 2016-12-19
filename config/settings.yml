@@ -40,3 +40,6 @@ like:
   size_avatar: 30
 comment:
   size_avatar: 20
+role:
+  admin: "admin"
+  user: "user"

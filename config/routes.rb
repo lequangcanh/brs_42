@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   resources :marks, only: [:new, :create, :update]
   namespace :admin do
     resources :categories
-    resources :users, only: [:index, :destroy]
+    resources :users, only: [:index, :destroy, :update]
     resources :books
     resources :requests, only: [:index, :update]
   end

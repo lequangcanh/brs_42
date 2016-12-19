@@ -1,5 +1,5 @@
 class Admin::UsersController < Admin::BaseController
-  before_action :load_user, only: :destroy
+  before_action :load_user, only: [:destroy, :update]
 
   def index
     @users = User.order_desc.paginate page: params[:page],
@@ -13,6 +13,21 @@ class Admin::UsersController < Admin::BaseController
       flash[:danger] = t "admin.users.destroy.error"
     end
     redirect_to admin_users_url
+  end
+
+  def update
+    if params[:role] == Settings.role.admin
+      @user.is_admin = true
+    else
+      @user.is_admin = false
+    end
+
+    if @user.save
+      flash[:success] = t("admin.users.update.updated", role: params[:role])
+    else
+      flash[:danger] = t "admin.users.update.error"
+    end
+    redirect_to :back
   end
   
   private

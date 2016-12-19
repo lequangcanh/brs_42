@@ -35,13 +35,14 @@ class Admin::CategoriesController < Admin::BaseController
   end
 
   def destroy
-    if @category.destroy
+    if @category.books.any?
+      flash[:danger] = t ".relationship_error"
+    elsif @category.destroy
       flash[:success] = t ".deleted"
-      redirect_to :back
     else
       flash[:danger] = t ".delete_error"
-      redirect_to admin_categories_path
     end
+    redirect_to admin_categories_path
   end
 
   private

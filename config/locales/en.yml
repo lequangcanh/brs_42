@@ -127,6 +127,8 @@ en:
       destroy:
         deleted: "Deleted book successful"
         delete_error: "Delete book fail"
+        relationship_error: "Can not delete this Book because it has some reviews. 
+          Please delete it first."
       show:
         book_detail: "Book detail"
       load_data:
@@ -144,6 +146,8 @@ en:
       destroy:
         deleted: "Category delete successful"
         delete_error: "Delete category fail"
+        relationship_error: "Can not delete this Category because it has some books. 
+          Please delete it first."
       edit:
         edit: "Edit category: '%{name}'"
         save_changes: "Save changes"
@@ -185,6 +189,11 @@ en:
         user: "User"
         confirm_delete: "User '%{name}' will be deleted. Are you sure to 
           continue?"
+      update:
+        updated: "Set %{role} for account successfully"
+        error: "Set %{role} for account fail"  
+      set_user: "Set user"
+      set_admin: "Set admin"
   sessions:
     new:
       login: "Log in"

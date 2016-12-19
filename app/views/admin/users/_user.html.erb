@@ -6,7 +6,16 @@
   <td class="email"><%= user.email %></td>
   <td class="service"><%= user.is_admin? ? t(".admin") : t(".user") %></td>
   <td class="action">
-    <% unless current_user.is_user? user %>
+    <% if current_user.is_manager? and !current_user.is_user? user %>
+      <% if user.is_admin? %>
+        <%= link_to t("admin.users.set_user"), admin_user_path(user, 
+          role: Settings.role.user), method: :put, class: "btn btn-primary" %>
+      <% else %>
+        <%= link_to t("admin.users.set_admin"), admin_user_path(user, 
+          role: Settings.role.admin), method: :put, class: "btn btn-primary" %>
+      <% end %>
+    <% end %>
+    <% if !current_user.is_user? user and !user.is_admin? %>
       <%= link_to t(".delete"), [:admin, user], method: :delete,
         data: {confirm: t(".confirm_delete", name: user.name)}, 
         class: "btn btn-danger" %>
