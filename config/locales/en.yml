@@ -37,6 +37,7 @@ en:
     profile: "Profile"
     settings: "Settings"
     password: "Change password"
+    history_reading: "Reading history"
     admin:
       categories: "Categories"
       books: "Books"
@@ -303,3 +304,8 @@ en:
       error: "Updated mark fail"
     create:
       error: "Created mark fail "
+  history:
+    history_reading: "Reading history"
+    action: "You're "
+    book: " the book: "
+    time: " at "

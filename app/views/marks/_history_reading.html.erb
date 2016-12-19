@@ -1,0 +1,17 @@
+<h4 id="title_history"><%= t "history.history_reading" %></h4>
+<div class="section">
+  <% @histories.each do |history| %>
+    <div class="history">
+      <i><%= t "history.action" %></i> 
+      <strong><%= history.mark_type %></strong>
+      <i><%= t "history.book" %></i>
+      <strong><%= link_to history.book.title, book_path(history.book) %></strong>
+      <i><%= t "history.time"%></i>
+      <strong><%= time_ago_in_words history.updated_at %></strong>
+      <br>
+    </div>
+  <% end %>
+</div>
+<div class="paginate">
+  <%= will_paginate @histories %>
+</div>

@@ -29,6 +29,9 @@ mark:
   reading: "reading"
   image_reading: "books/reading.png"
   image_read: "books/read.jpg"
+  read: "read"
+  reading: "reading"
+  per_page: 10 
 accepted:
   per_page: 15
 rejected:

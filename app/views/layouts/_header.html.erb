@@ -13,8 +13,9 @@
               admin_categories_path %></li>
           <% else %>
             <li><%= link_to t("header.activity"), "#" %></li>
-            <li><%= link_to t("header.link_categories"), "#" %></li>
+            <li><%= link_to t("header.link_categories"), books_path %></li>
             <li><%= link_to t("header.requests"), requests_path %></li>
+            <li><%= link_to t("header.history_reading"), current_user %></li>
           <% end %>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">

@@ -1,10 +1,11 @@
 class MarksController < ApplicationController
+  before_action :logged_in_user, except: [:destroy, :edit]
   before_action :load_mark, only: :update
- 
+
   def new
     @mark = Mark.new
   end
-  
+
   def create
     @mark = Mark.new mark_params
     unless @mark.save
