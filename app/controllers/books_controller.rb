@@ -3,8 +3,11 @@ class BooksController < ApplicationController
   before_action :load_book, only: :show
   
   def index
-    @books = Book.order_created_at.paginate page: params[:page],
+    @book_search = Book.by_author_or_title(params[:search])
+      .by_category params[:category]
+    @books = @book_search.order_created_at.paginate page: params[:page],
       per_page: Settings.book.per_page
+    @categories = Category.all
   end
 
   def show

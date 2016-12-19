@@ -379,6 +379,7 @@ h1.edit_book {
 .comment_list {
   margin-left: 30px;
 }
+
 /* History */
 .history {
   margin-left: 10px;
@@ -391,4 +392,20 @@ h1.edit_book {
 }
 .paginate {
   text-align: center;
+}
+.custom-search-form{
+  border: 2px solid #a1a1a1;
+  padding: 10px 20px;
+  width: 250px;
+  height: 30px;
+  border-radius: 15px 15px;
+  margin: 10px;
+}
+.select{
+  border: 2px solid #a1a1a1;
+  border-radius: 10px 10px;
+  width: 300px;
+  height: 30px;
+  text-align: center; 
+  text-indent: 5px; 
 }
