@@ -6,6 +6,7 @@ module LikesHelper
         redirect_to root_url
         flash[:danger] = t "controllers.flash.like_not_found"
       end
+      review.likes.find_by user_id: current_user.id
     else
       likes_path review_id: review.id
     end

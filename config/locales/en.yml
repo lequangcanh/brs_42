@@ -225,6 +225,8 @@ en:
       none: "None"
       back: "Back"
       reviews: "Reviews"
+      rate: "Rate"
+      rating: "rating"
     review_form:
       your_review: "Your review....."
       send_review: "Send your review"
@@ -246,6 +248,7 @@ en:
       commented: "Commented"
       ago: "ago"
       sure: "You sure?"
+      comment: "Comment"
   controller:
     book:
       flash:
@@ -294,6 +297,8 @@ en:
       not_permission: "You are not permission"
       like_not_found: "Like not found"
       review_not_found: "Review not found"
+      rate_not_found: "Rate not found"
+      book_not_found: "Book not found"
     requests:
        create_success: "Send request successfully!"
        create_error: "Send request error!"

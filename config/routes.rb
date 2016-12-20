@@ -22,4 +22,5 @@ Rails.application.routes.draw do
   resources :reviews do
     resources :comments
   end
+  resources :rates, only: [:create, :update]
 end

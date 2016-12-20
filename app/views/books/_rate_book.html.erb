@@ -1,0 +1,19 @@
+<div class="wrapper"> 
+  <div class="rate_info">
+    <span class="label label-info avg_rate">
+      <%= book.avg_rate %>
+    </span>
+    <span>
+      (<%= book.rates.count %> <%= t "views.book.rating" %>)
+    </span>
+  </div>
+  <%= form_for rate, remote: true do |f| %>
+    <span class="rating">
+      <% (1..5).reverse_each do |number| %>
+        <%= f.radio_button :number_rates, number, id: "rate_rating#{number}" %>
+        <%= f.label "rating#{number}", number %>
+      <% end %>
+    </span>
+    <%= f.hidden_field :book_id, value: book.id %>
+  <% end %>
+</div>

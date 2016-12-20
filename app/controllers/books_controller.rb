@@ -16,6 +16,15 @@ class BooksController < ApplicationController
       @mark= Mark.new user_id: current_user.id, book_id: params[:id]
       @mark.save
     end
+    if @book.rated_by? current_user
+      @rate = current_user.rates.find_by book_id: @book.id
+      unless @rate
+        redirect_to @book
+        flash[:danger] = t "controllers.flash.rate_not_found"
+      end
+    else
+      @rate = Rate.new
+    end
   end
 
   private 
@@ -23,7 +32,7 @@ class BooksController < ApplicationController
     @book = Book.find_by id: params[:id]
     unless @book
       flash[:danger] = t "controller.book.flash.fail"
-      redirect_to books_url 
+      redirect_to books_url
     end
     @reviews = @book.reviews.created_desc
       .paginate page: params[:page], per_page: Settings.book.per_page

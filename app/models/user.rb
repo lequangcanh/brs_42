@@ -39,14 +39,11 @@ class User < ApplicationRecord
     following.include? other_user
   end
 
-
   def list_favorite_books
     Book.of_ids Mark.favorite_book_ids_of_user self.id
   end
 
-  scope :of_ids, -> ids do 
-    where id: ids
-  end
+  scope :of_ids, -> ids {where id: ids}
 
   private
   def downcase_email

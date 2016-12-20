@@ -5,7 +5,7 @@
   </p>
   <p class="timestamp">
     <span id="like_review_<%= review.id %>">
-      <%= link_to content_tag(:span, "", class: "glyphicon glyphicon-thumbs-up"), "#" %>
+      <%= render "like_form", review: review %>
     </span>
     <%= link_to content_tag(:span, 
       "#{t("views.review_list.like")} (#{review.list_users_like_review.count})",
@@ -13,9 +13,9 @@
       data: {toggle: "modal", target: "#modal_#{review.id}"} %>
     <span>&#8226</span>
     <%= link_to content_tag(:span,
-      "#{t("views.review_list.comment")} (#{review.comments.count})",
+      "#{t("views.comment_list.comment")} (#{review.comments.count})",
       id: "comments_#{review.id}"),
-      "#", remote: true %>
+      review_comments_path(review), remote: true %>
     <span>&#8226</span>
     <%= t "views.review_list.reviewed" %>
     <%= time_ago_in_words review.created_at %>
@@ -35,5 +35,8 @@
   <div id="comment_list_<%= review.id %>" class="comment_list">
   </div>
   <hr>
+  <div id="users_like_<%= review.id %>">
+    <%= render "books/list_user_like", review: review %>
+  </div>
 <% end %>
 <%= will_paginate @reviews %>

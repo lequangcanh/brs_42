@@ -2,17 +2,18 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-5">
-      <div class="book_image">
+      <div>
         <%= render "marks/mark" %>
+      </div>
+      <div class="book_image">
         <%= image_tag @book.image.url, size: Settings.book.size_big  %>
       </div>
       <div>
         <%= render "marks/form_book_marks" %>
       </div>
     </div>
-
     <div class="col-md-7">
-      <table class="table ">
+      <table class="table">
         <tr>
           <th><%= t "views.book.title_book" %></th>
           <td><%= @book.title %></td>
@@ -36,15 +37,19 @@
           <th><%= t "views.book.description" %></th>
           <td><%= @book.description %></td>
         </tr>
+        <tr>
+          <th><%= t "views.book.rate" %></th>
+          <td id="rate_book"><%= render "rate_book", rate: @rate, book: @book %></td>
+        </tr>
       </table>
     </div>
   </div>
-</div>
 
-<div class="row">
-  <h3><%= t "views.book.reviews" %></h3>
-  <%= render "review_form" if is_logged_in? %>
-</div>
-<div class="row" id="review_list">
-  <%= render "review_list" %>
+  <div class="row">
+    <h3><%= t "views.book.reviews" %></h3>
+    <%= render "review_form" if is_logged_in? %>
+  </div>
+  <div class="row" id="review_list">
+    <%= render "review_list" %>
+  </div>
 </div>

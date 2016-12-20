@@ -4,3 +4,8 @@ $(document).on('change','#book_image', function() {
     alert('Maximum file size is 5MB. Please choose a smaller file.');
   }
 });
+
+$(document).on('click', 'input[type=radio]', function() {
+  $('form').submit();
+  alert('Thanks for rating');
+});
