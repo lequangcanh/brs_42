@@ -5,7 +5,7 @@
   </p>
   <p class="timestamp">
     <span id="like_review_<%= review.id %>">
-      <%= render "like_form", review: review %>
+      <%= render "books/like_form", review: review %>
     </span>
     <%= link_to content_tag(:span, 
       "#{t("views.review_list.like")} (#{review.list_users_like_review.count})",

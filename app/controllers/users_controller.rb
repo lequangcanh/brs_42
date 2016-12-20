@@ -2,6 +2,11 @@ class UsersController < ApplicationController
   before_action :logged_in_user, only: :edit
   before_action :correct_user, only: [:edit, :update]
 
+  def index
+    @users = User.search_by_name(params[:search])
+      .paginate page: params[:page], per_page: Settings.users.per_page
+  end
+
   def new
     @user = User.new
   end
@@ -31,7 +36,7 @@ class UsersController < ApplicationController
     return render file: Settings.page_404_url unless @user
     set_relationship @user
     @favorite_books = @user.list_favorite_books
-      .paginate page: params[:favorite_book_page], per_page: Settings.book.per_page
+      .paginate page: params[:favorite_book_page], per_page: Settings.per_page
     @histories = @user.marks.not_unread.order_updated_at
       .paginate page: params[:page], per_page: Settings.mark.per_page
   end

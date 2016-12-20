@@ -23,6 +23,10 @@ class User < ApplicationRecord
 
   scope :order_desc, ->{order created_at: :desc}
 
+  scope :search_by_name, -> name_param do
+    where "name LIKE :name_param", name_param: "%#{name_param}%" if name_param.present?
+  end 
+
   def is_user? user
     self == user
   end

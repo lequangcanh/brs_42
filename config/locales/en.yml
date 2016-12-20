@@ -38,6 +38,7 @@ en:
     settings: "Settings"
     password: "Change password"
     history_reading: "Reading history"
+    all_users: "Users"
     admin:
       categories: "Categories"
       books: "Books"
@@ -82,6 +83,9 @@ en:
       change_password: "Change password"
     update:
       success_update: "Your profile is successfully updated!"
+    index:
+      all_users: "All users"
+      search_users: "Search users ...."
   admin:
     controller:
       update_success: "request is updated"
@@ -281,7 +285,7 @@ en:
   controller:
     book:
       flash:
-        fail: "not_found"
+        fail: "Book not found"
   date:
     formats:
       format_date: "%d/%m/%Y"

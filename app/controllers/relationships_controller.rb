@@ -9,11 +9,11 @@ class RelationshipsController < ApplicationController
     if relationship == "following"
       @title = t ".following_title"
       @users = @user.following
-        .paginate page: params[:page], per_page: Settings.per_page
+        .paginate page: params[:page], per_page: Settings.users.per_page
     else
       @title = t ".followers_title"
       @users = @user.followers
-        .paginate page: params[:page], per_page: Settings.per_page
+        .paginate page: params[:page], per_page: Settings.users.per_page
     end
     set_relationship @user
   end

@@ -1,6 +1,7 @@
 <% @users.each do |user| %>
-  <%= gravatar_for user %>
-  <%= link_to user.name, user %>
-  <hr>
+  <div class="col-md-4 list_user">
+    <%= gravatar_for user %>
+    <%= link_to user.name, user %>
+  </div>
 <% end %>
 <%= will_paginate @users %>

@@ -33,9 +33,10 @@ class BooksController < ApplicationController
     unless @book
       flash[:danger] = t "controller.book.flash.fail"
       redirect_to books_url
+      return
     end
     @reviews = @book.reviews.created_desc
-      .paginate page: params[:page], per_page: Settings.book.per_page
+      .paginate page: params[:page], per_page: Settings.per_page
     @review = Review.new
   end
 end

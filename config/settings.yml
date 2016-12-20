@@ -21,6 +21,7 @@ request:
   area_rows: 3
 users:
   avatar: "http://gravatar.com/emails"
+  per_page: 15
 mark:
   size_small: "30x30"
   favorate: "favorate"
